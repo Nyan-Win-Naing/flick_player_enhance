@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class FlickyPlayer extends StatefulWidget {
-  FlickyPlayer({Key? key}) : super(key: key);
+  const FlickyPlayer({Key? key}) : super(key: key);
 
   @override
   _FlickyPlayerState createState() => _FlickyPlayerState();
@@ -37,7 +37,7 @@ class _FlickyPlayerState extends State<FlickyPlayer> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 2,
-        title: Text(
+        title: const Text(
           "Flicky Player",
           style: TextStyle(
             fontSize: 16,
@@ -50,7 +50,7 @@ class _FlickyPlayerState extends State<FlickyPlayer> {
           aspectRatio: 16 / 9,
           child: FlickVideoPlayer(
             flickManager: flickManager,
-            flickVideoWithControls: FlickVideoWithControls(
+            flickVideoWithControls: const FlickVideoWithControls(
               controls: FlickyPlayerControl(),
             ),
           ),

@@ -22,7 +22,7 @@ class FlickyPlayerControl extends StatelessWidget {
     return BlocBuilder<ShowPlaybackSliderBloc, bool>(
       builder: (context, isShowSlider) {
         return isShowSlider
-            ? PlaybackSliderView()
+            ? const PlaybackSliderView()
             : Stack(
                 children: <Widget>[
                   Positioned.fill(
@@ -32,7 +32,7 @@ class FlickyPlayerControl extends StatelessWidget {
                       ),
                     ),
                   ),
-                  PlayAndSeekView(),
+                  const PlayAndSeekView(),
                   Positioned.fill(
                     child: VideoControlView(fontSize: fontSize),
                   ),
@@ -82,11 +82,11 @@ class PlaybackSliderView extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: 70,
-                margin: EdgeInsets.symmetric(
+                margin: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 16,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(16),
@@ -118,7 +118,7 @@ class PlaybackSliderView extends StatelessWidget {
                     thumbIcon: Container(
                       width: 20,
                       height: 20,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                         shape: BoxShape.circle,
                       ),
@@ -148,7 +148,7 @@ class PlaybackSliderView extends StatelessWidget {
 class FullScreenAndPlayBackButtonView extends StatelessWidget {
   final Function onTapPlayback;
 
-  FullScreenAndPlayBackButtonView({required this.onTapPlayback});
+  const FullScreenAndPlayBackButtonView({super.key, required this.onTapPlayback});
 
   @override
   Widget build(BuildContext context) {
@@ -158,14 +158,14 @@ class FullScreenAndPlayBackButtonView extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FlickFullScreenToggle(
+            const FlickFullScreenToggle(
               size: 30,
             ),
             IconButton(
               onPressed: () {
                 onTapPlayback();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.speed,
                 size: 30,
                 color: Colors.white,
@@ -196,33 +196,33 @@ class VideoControlView extends StatelessWidget {
             child: Container(),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            color: Color.fromRGBO(0, 0, 0, 0.4),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            color: const Color.fromRGBO(0, 0, 0, 0.4),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                FlickPlayToggle(
+                const FlickPlayToggle(
                   size: 20,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 FlickCurrentPosition(
                   fontSize: fontSize,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Expanded(
+                const Expanded(
                   child: VideoProgressBarView(),
                 ),
                 FlickTotalDuration(
                   fontSize: fontSize,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                FlickSoundToggle(
+                const FlickSoundToggle(
                   size: 20,
                 ),
               ],
@@ -246,7 +246,7 @@ class VideoProgressBarView extends StatelessWidget {
         flickProgressBarSettings: FlickProgressBarSettings(
           height: 5,
           handleRadius: 10,
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 8.0,
             vertical: 8,
           ),
@@ -259,7 +259,7 @@ class VideoProgressBarView extends StatelessWidget {
             double? width,
           }) {
             return Paint()
-              ..shader = LinearGradient(colors: [
+              ..shader = const LinearGradient(colors: [
                 Color.fromRGBO(255, 249, 196, 1),
                 Color.fromRGBO(255, 235, 59, 1)
               ], stops: [
@@ -267,7 +267,7 @@ class VideoProgressBarView extends StatelessWidget {
                 0.5
               ]).createShader(
                 Rect.fromPoints(
-                  Offset(0, 0),
+                  const Offset(0, 0),
                   Offset(width!, 0),
                 ),
               );
@@ -279,7 +279,7 @@ class VideoProgressBarView extends StatelessWidget {
             double? width,
           }) {
             return Paint()
-              ..shader = RadialGradient(
+              ..shader = const RadialGradient(
                 colors: [
                   Colors.black,
                   Colors.black,
@@ -307,7 +307,7 @@ class PlayAndSeekView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlickShowControlsAction(
+    return const FlickShowControlsAction(
       child: FlickSeekVideoAction(
         child: Center(
           child: FlickVideoBuffer(

@@ -37,14 +37,14 @@ class MyApp extends StatelessWidget {
         progressIndicatorTheme: ProgressIndicatorThemeData(
           circularTrackColor: Colors.white.withOpacity(0.2),
         ),
-        sliderTheme: SliderThemeData(
+        sliderTheme: const SliderThemeData(
           valueIndicatorTextStyle: TextStyle(
             color: Colors.white,
             fontSize: 12,
           ),
         ),
       ),
-      home: FlickyPlayer(),
+      home: const FlickyPlayer(),
     );
   }
 }
